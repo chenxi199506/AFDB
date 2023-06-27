@@ -1,0 +1,591 @@
+---
+title: "figure"
+author: "陈曦"
+date:  "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F,results = "hide",eval = F,warning=FALSE,message=FALSE)
+```
+
+
+# Markdown 
+
+## 分子
+
+```{r}
+library(r3dmol)
+benz <- "2244
+  -OEChem-12042209412D
+
+ 21 21  0     0  0  0  0  0  0999 V2000
+    3.7320   -0.0600    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301    1.4400    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981    1.4400    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -1.5600    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -0.5600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -0.0600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -1.5600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301   -0.5600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -2.0600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301   -1.5600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641    0.9400    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.5600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.0600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0611   -1.8700    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8671   -0.2500    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -2.6800    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8671   -1.8700    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3100    0.4769    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631    0.2500    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6900   -0.5969    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301    2.0600    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  5  1  0  0  0  0
+  1 12  1  0  0  0  0
+  2 11  1  0  0  0  0
+  2 21  1  0  0  0  0
+  3 11  2  0  0  0  0
+  4 12  2  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+  6  8  2  0  0  0  0
+  6 11  1  0  0  0  0
+  7  9  1  0  0  0  0
+  7 14  1  0  0  0  0
+  8 10  1  0  0  0  0
+  8 15  1  0  0  0  0
+  9 10  2  0  0  0  0
+  9 16  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 12 13  1  0  0  0  0
+ 13 18  1  0  0  0  0
+ 13 19  1  0  0  0  0
+ 13 20  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+2244
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+212
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+4
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+3
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBwOAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAABAAAAGgAACAAADASAmAAyDoAABgCIAiDSCAACCAAkIAAIiAEGCMgMJzaENRqCe2Cl4BEIuYeIyCCOAAAAAAAIAAAAAAAAABAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+2-acetoxybenzoic acid
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+2-acetyloxybenzoic acid
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+2-acetyloxybenzoic acid
+
+> <PUBCHEM_IUPAC_NAME>
+2-acetyloxybenzoic acid
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+2-acetyloxybenzoic acid
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+2-acetoxybenzoic acid
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C9H8O4/c1-6(10)13-8-5-3-2-4-7(8)9(11)12/h2-5H,1H3,(H,11,12)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+BSYNRYMUTXBXSQ-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3>
+1.2
+
+> <PUBCHEM_EXACT_MASS>
+180.04225873
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C9H8O4
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+180.16
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC(=O)OC1=CC=CC=C1C(=O)O
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC(=O)OC1=CC=CC=C1C(=O)O
+
+> <PUBCHEM_CACTVS_TPSA>
+63.6
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+180.04225873
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+13
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+5  6  8
+5  7  8
+6  8  8
+7  9  8
+8  10  8
+9  10  8
+
+$$$$
+
+"
+
+p <- r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
+  m_add_model(data = benz, format = "sdf") %>%
+  m_set_style(style = m_style_stick()) %>%
+  m_set_style(sel = m_sel(model = 0), 
+              style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+  m_zoom_to()
+
+
+p
+saveRDS(p,file = "..\\..\\AFDB/www/p.rds") 
+```
+
+
+
+## Docker结果
+
+```{r}
+library(r3dmol)
+library(bio3d)
+pdb <- read.pdb("www/4887.pdb")
+
+p2 <- r3dmol() %>%
+  m_add_model(data = m_bio3d(pdb)) %>%
+  m_set_style(style = m_style_cartoon(color = 'spectrum')) %>%
+  m_zoom_to() %>%
+  m_rotate(angle = "90", axis = "x") %>%
+  m_spin(axis = "z")
+
+p2
+
+
+saveRDS(p2,file = "GPR17.RDS")
+
+```
+
+
+## sdf读取
+
+```{r}
+BiocManager::install("ChemmineOB")
+BiocManager::install("ChemmineR")
+library(ChemmineOB)
+library(ChemmineR)
+a=read.SDFset("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/sdfsample.sdf")
+
+benz <- read.SDFstr("www/Structure2D_CID_12205426.sdf")
+benz<- benz@a[["1"]]
+r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
+  m_add_model(data = benz, format = "sdf") %>%
+  m_set_style(style = m_style_stick()) %>%
+  m_set_style(sel = m_sel(model = 0), 
+              style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+  m_zoom_to()
+
+
+```
+
+```{r}
+path <- c("D:\\new desktop/shiny/AFDB/3Dmol/")
+sample_name=list.files(path)  #
+sample_name
+dir <- file.path(path,sample_name)#
+dir[1]
+dir
+i=1
+listmolpic <- list()
+listmol <- list()
+for(i in 1:length(dir)){
+  benz <- read.SDFstr(dir[i])
+benz<- benz@a[["1"]]
+p <- r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
+  m_add_model(data = benz, format = "sdf") %>%
+  m_set_style(style = m_style_stick()) %>%
+  m_set_style(sel = m_sel(model = 0), 
+              style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+  m_zoom_to()
+name <- paste0(sample_name[i],".rds")
+#saveRDS(p2,file = name)
+print(i)
+listmolpic[[i]] <-p
+listmol[[i]] <- benz
+  
+}
+
+sample_name2 <- gsub("Conformer3D_","",sample_name)
+sample_name2 <- gsub("Structure2D_","",sample_name2)
+sample_name2 <- gsub(".sdf","",sample_name2)
+names(listmol) <- sample_name2
+
+saveRDS(listmol,file = "smallmol.rds")
+saveRDS(listmolpic,file = "smallmolpic.rds")
+benz <- listmol[[1]]
+```
+
+
+## demo
+
+```{r}
+library(shiny)
+library(r3dmol)
+library(colourpicker)
+library(bio3d)
+setwd("D:\\new desktop/shiny/AFDB/")
+pdb_GPR17 <- read.pdb("www/4887.pdb")
+drugs <- readRDS("D:\\new desktop\\shiny\\AFDB\\smallmol.rds")
+drugnames <- names(drugs)
+dn <- list()
+for(i in 1:length(drugnames)){dn[[i]] <- drugnames[i]}
+names(dn) <-names(drugs)
+
+
+ui <- fluidPage(
+  fluidRow(column(
+    width = 12,
+    titlePanel("{r3dmol} Shiny Demo"),
+  )),
+  fluidRow(
+    column(
+      width = 3,
+      wellPanel(
+        uiOutput(outputId = "select_panel"),
+        actionButton(
+          inputId = "zoom_in",
+          label = "Zoom in",
+          icon = icon("plus")
+        ),
+        actionButton(
+          inputId = "zoom_out",
+          label = "Zoom out",
+          icon = icon("minus")
+        ),
+        actionButton(
+          inputId = "spin",
+          label = "Spin",
+          icon = icon("sync-alt")
+        ),
+        actionButton(
+          inputId = "clear",
+          label = "Clear",
+          icon = icon("trash-alt")
+        )
+      )
+    ),
+    column(
+      width = 9,
+      column(
+        width = 12,
+        selectizeInput(
+          inputId = "select_single_model",
+          label = "Select Model",
+          choices = dn,
+        )
+      ),
+      r3dmolOutput(outputId = "r3dmol", height = "700px")
+    ),
+    # column(
+    #   width = 3,
+    #   wellPanel(verbatimTextOutput(outputId = "props"))
+    # )
+  )
+)
+
+server <- function(input, output, session) {
+  output$r3dmol <- renderR3dmol({
+    if (input$select_single_model == dn[[1]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[1]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+      
+    } else if (input$select_single_model ==  dn[[2]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[2]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[3]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[3]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[4]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[4]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[5]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[5]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[6]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[6]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[7]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[7]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[8]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[8]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[9]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[9]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[2]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[2]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[10]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[10]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[11]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[11]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[12]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[12]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[13]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[13]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[14]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[14]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[15]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[15]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[16]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[16]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[17]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[17]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[18]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[18]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[19]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[19]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[20]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[20]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()
+    }else if (input$select_single_model ==  dn[[21]]) {
+      r3dmol( cartoonQuality = 10,lowerZoomLimit = 50,upperZoomLimit = 350, backgroundColor = "#FFFFFF") %>%
+        m_add_model(data = drugs[[21]],format = "sdf", options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+        m_set_style(sel = m_sel(model = 0), style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+        m_zoom_to()}
+  
+    
+  })
+  
+  observeEvent(input$select_single_model, {
+    output$select_panel <- renderUI({
+      animate_panel <- switch(
+        input$select_single_model,
+        "animate_sample" = radioButtons(
+          inputId = "animate",
+          label = "Animate",
+          choices = c(FALSE, TRUE),
+          inline = TRUE
+        )
+      )
+      
+      tagList(
+        selectInput(
+          inputId = "set_style",
+          label = "Set Style",
+          choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
+          selected = "Line"
+        ),
+        sliderInput(
+          inputId = "set_slab",
+          label = "Set slab of view",
+          min = -150,
+          value = c(-50, 50),
+          animate = TRUE,
+          step = 10,
+          max = 150,
+          dragRange = TRUE
+        ),
+        radioButtons(
+          inputId = "set_projection",
+          label = "Set view projection scheme",
+          choices = c("perspective", "orthographic"),
+          inline = TRUE
+        ),
+        sliderInput(
+          inputId = "set_perceived_distance",
+          label = "Set perceived distance",
+          min = 0,
+          max = 500,
+          value = 300
+        ),
+        animate_panel
+      )
+    })
+  })
+  
+  observeEvent(input$set_background_color, {
+    m_set_background_color(
+      id = "r3dmol",
+      hex = input$set_background_color
+    )
+  })
+  
+  observeEvent(input$spin, {
+    m_spin(id = "r3dmol")
+  })
+  
+  observeEvent(input$animate, {
+    if (input$animate) {
+      m_animate(id = "r3dmol", list(loop = "backAndForth"))
+    } else {
+      m_stop_animate(id = "r3dmol")
+    }
+  })
+  
+  observeEvent(input$zoom_out, {
+    m_zoom(
+      id = "r3dmol",
+      factor = 0.7,
+      animationDuration = 1000
+    )
+  })
+  
+  observeEvent(input$zoom_in, {
+    m_zoom(
+      id = "r3dmol",
+      factor = 1.3,
+      animationDuration = 1000
+    )
+  })
+  
+  observeEvent(input$set_style, {
+    style <- switch(
+      input$set_style,
+      "Line" = list(line = list()),
+      "Cartoon" = list(cartoon = list()),
+      "Stick" = list(stick = list()),
+      "Cross" = list(cross = list()),
+      "Sphere" = list(sphere = list())
+    )
+    
+    m_set_style(
+      id = "r3dmol",
+      style = style
+    )
+  })
+  
+  observeEvent(input$set_projection, {
+    m_set_projection(id = "r3dmol", scheme = input$set_projection)
+  })
+  
+  observeEvent(input$clear, {
+    m_clear(id = "r3dmol")
+  })
+  
+  observeEvent(input$set_slab, {
+    m_set_slab(
+      id = "r3dmol",
+      near = input$set_slab[1],
+      far = input$set_slab[2]
+    )
+  })
+  
+  observeEvent(input$set_perceived_distance, {
+    m_set_preceived_distance(id = "r3dmol", dist = input$set_perceived_distance)
+  })
+  
+  output$props <- renderPrint({
+    list(
+      m_get_perceived_distance = input$r3dmol_get_perceived_distance
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
